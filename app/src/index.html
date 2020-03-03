@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FCCoin | Truffle Webpack Demo w/ Frontend</title>
+  </head>
+  <style>
+    input {
+      display: block;
+      margin-bottom: 12px;
+    }
+  </style>
+  <body>
+    <h1>溯源调用智能合约示例</h1>
+    <p>You have <strong class="balance">loading...</strong> MAS</p>
+
+    <h1>发货</h1>
+
+    <label for="amount">Amount:</label>
+    <input type="text" id="amount" placeholder="e.g. 95" />
+
+    <label for="receiver">To address:</label>
+    <input
+      type="text"
+      id="receiver"
+      placeholder="e.g. 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
+    />
+    <label for="receiver">订单号:</label>
+    <input
+    type="text"
+    id="tradeno1"
+    placeholder="202003021401"
+    />
+
+    <button onclick="App.sendCoin()">发货</button>
+    <p>链上交易记录</p>
+    <p>收货方：<strong class="tradedetailto">loading...</strong> </p>
+    <p>数量：<strong class="tradedetailamount">loading...</strong> </p>
+
+
+
+    <h1>收货</h1>
+    <label for="receiver">订单号:</label>
+    <input
+    type="text"
+    id="tradeno2"
+    placeholder="202003021401"
+    />
+
+    <button onclick="App.receiveCoin()">收货</button>
+
+
+
+
+
+    <p id="status"></p>
+    <p>
+      <strong>Hint:</strong> open the browser developer console to view any
+      errors and warnings.
+    </p>
+    <script src="index.js"></script>
+  </body>
+</html>
