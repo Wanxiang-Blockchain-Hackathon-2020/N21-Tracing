@@ -26,7 +26,7 @@ const App = {
         this.tokenaddress
       );
 
-      console.log(chainTradeArtifact.abi);
+      // console.log(chainTradeArtifact.abi);
 
       
       this.chainTrade = new web3.eth.Contract(
@@ -109,7 +109,69 @@ const App = {
     this.refreshBalance();
   },
 
+  iniCoin: async function() {
 
+    this.setStatus("入库中!")
+
+    const coinname = document.getElementById("coinname").value;
+    const symbol = document.getElementById("symbol").value;
+    const decimal = document.getElementById("decimal").value;
+    const initialBalance = document.getElementById("initialBalance").value;
+    const reciver = document.getElementById("reciver").value;
+
+    this.setStatus("Initiating transaction... (please wait)");
+
+    //发币
+    var rlt = false;
+    var xmlHttp = new XMLHttpRequest();
+    var array = 
+      {
+        "name":coinname,
+        "symbol":symbol,
+        "decimals":decimal,
+        "initialBalance":initialBalance,
+        "initialBalanceReceiver":reciver,
+        "cap": 100000000000
+          }
+    
+        //  post
+        xmlHttp.open("post","https://dev.elapp.org/api/1/gen/erc20");
+
+        // 设置请求头的Content-Type
+        var ele_csrf=document.getElementsByName("csrfmiddlewaretoken")[0];
+        xmlHttp.setRequestHeader("Content-Type","application/json");
+        //xmlHttp.setRequestHeader("X-CSRFToken",ele_csrf.value);
+
+        // （3） 发送数据
+        console.log("array2",array)
+        xmlHttp.send(JSON.stringify(array)) ;   // 请求体数据
+
+
+        // （4） 回调函数  success
+        xmlHttp.onreadystatechange = function() {
+            if(this.status==200){
+              console.log("responseText",this.responseText)
+
+              var obj = JSON.parse(this.responseText); 
+              console.log("responseText",obj.status)
+
+              if(obj.status==200){
+                  rlt = true;
+                  console.log("txid",obj.result.txid)
+                  console.log("txid",obj.result.contract_address)
+
+                  const txhashElement = document.getElementsByClassName("txhash")[0];
+                  txhashElement.innerHTML = obj.result.txid;
+
+                  const tokenaddressElement = document.getElementsByClassName("tokenaddress")[0];
+                  tokenaddressElement.innerHTML = obj.result.contract_address;
+
+                }
+            }
+        };
+        this.setStatus("入库完成!")
+
+  },
 
   setStatus: function(message) {
     const status = document.getElementById("status");

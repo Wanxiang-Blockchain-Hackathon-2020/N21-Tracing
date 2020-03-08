@@ -13,6 +13,44 @@
     <h1>溯源调用智能合约示例</h1>
     <p>You have <strong class="balance">loading...</strong> MAS</p>
 
+
+    <h1>入库</h1>
+    <label for="receiver">token名</label>
+    <input
+    type="text"
+    id="coinname"
+    placeholder="TestCoin"
+    />
+    <label for="receiver">token简称</label>
+    <input
+    type="text"
+    id="symbol"
+    placeholder="testcoin"
+    />
+    <label for="receiver">小数位</label>
+    <input
+    type="text"
+    id="decimal"
+    placeholder="18"
+    />
+    <label for="receiver">数量</label>
+    <input
+    type="text"
+    id="initialBalance"
+    placeholder="1000000000"
+    />
+    <label for="receiver">所有者</label>
+    <input
+    type="text"
+    id="reciver"
+    placeholder="0x8E2Dbe3ff533b68d8B8008B81d9c0f0fF066AC9e"
+    />
+    <button onclick="App.iniCoin()">入库</button>
+    <p>链上入库记录</p>
+    <p>交易hash：<strong class="txhash">loading...</strong> </p>
+    <p>token地址：<strong class="tokenaddress">loading...</strong> </p>
+
+
     <h1>发货</h1>
 
     <label for="amount">Amount:</label>
