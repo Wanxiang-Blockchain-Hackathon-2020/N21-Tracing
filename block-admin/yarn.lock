@@ -516,10 +516,10 @@ ee-first@1.1.1:
   resolved "https://registry.npm.taobao.org/ee-first/download/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-ejs@~2.3.3:
-  version "2.3.4"
-  resolved "https://registry.npm.taobao.org/ejs/download/ejs-2.3.4.tgz#3c76caa09664b3583b0037af9dc136e79ec68b98"
-  integrity sha1-PHbKoJZks1g7ADevncE2557Gi5g=
+ejs@~2.5.5:
+  version "2.5.5"
+  resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.5.5.tgz#6ef4e954ea7dcf54f66aad2fe7aa421932d9ed77"
+  integrity sha1-bvTpVOp9z1T2aq0v56pCGTLZ7Xc=
 
 encodeurl@^1.0.2:
   version "1.0.2"
